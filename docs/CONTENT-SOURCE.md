@@ -10,6 +10,9 @@ Every assertion displayed on the website must be traceably grounded in this sour
 
 ## 2. Inviolable Content Rules
 
+> **Core Governance Rule**:
+> _"Source content must not be fabricated. Any missing, unclear, contradictory, or unverified information must be flagged for review."_
+
 1. **Preservation of Terminology**:
    Preserve official company terminology, technical designations (e.g. voltage ratings, equipment names, licensing classifications), and scope definitions as stated in the source profile unless explicitly instructed to adjust phrasing for clarity.
 

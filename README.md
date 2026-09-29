@@ -155,12 +155,39 @@ The architecture is fully compatible with Vercel and standard Next.js hosting en
 
 ---
 
-## 7. Phase 1 Verification Status
+## 7. Content-Source Policy
+
+The official Powertech Engineers Company Profile document is the primary source of truth for all company information.
+
+> **Zero Fiction Rule**:
+> _"Source content must not be fabricated. Any missing, unclear, contradictory, or unverified information must be flagged for review."_
+
+The codebase strictly forbids inventing:
+
+- Client names or project scopes
+- Numerical statistics or annual turnover
+- Employee counts or workforce capacity claims
+- ISO certifications or contractor license grades without registration numbers
+- Client testimonials or awards
+
+---
+
+## 8. Verification Policy
+
+Because primary company documents and legacy profiles may contain conflicting contact numbers, evolving addresses, or outdated email domains, all content items are tracked in `docs/CONTENT-VERIFICATION.md`.
+
+- Unverified items are tagged with explicit `[TODO: Verify ...]` markers in the data schemas (`src/data/`).
+- No assumptions or silent corrections are permitted.
+- Publication of company track record and executive profiles occurs only after formal sign-off.
+
+---
+
+## 9. Phase 1 Verification Status
 
 - [x] Next.js App Router with TypeScript & Tailwind CSS initialized
-- [x] Design token system established in `src/app/globals.css`
+- [x] Design token system established in `src/app/globals.css` with reduced-motion support
 - [x] All 13 site routes prepared with metadata and breadcrumbs
-- [x] 20 reusable component interfaces prepared and typed
+- [x] Foundational reusable UI components and cards prepared and typed
 - [x] Strict data schemas created with zero synthetic/placeholder claims
 - [x] Four documentation guides created in `/docs/`
 - [x] Prettier, ESLint, and TypeScript validation verified

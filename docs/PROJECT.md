@@ -28,11 +28,58 @@ The digital presence must project technical authority, engineering rigor, statut
 
 ---
 
-## 3. Development Principles
+## 3. Target Audience
 
-- **Separation of Concerns**: Clean isolation between domain data schemas (`src/data/`), business logic/utilities (`src/lib/`), UI components (`src/components/`), and routing endpoints (`src/app/`).
-- **Server-First Architecture**: Default to React Server Components (RSC) to maximize Core Web Vitals, minimize client bundle weight, and optimize search engine crawling.
-- **Typed Content Structures**: Strict TypeScript interfaces enforce that data is modeled accurately and missing fields remain explicit `null` or `TODO` values rather than arbitrary fabrications.
-- **Design Token Scalability**: Visual identity and theme variables (colors, spacing, typography, radii, elevations) are managed centrally in `globals.css` and Tailwind `@theme` configuration.
-- **Accessibility by Design (WCAG Conscious)**: High contrast, semantic HTML5 elements, full keyboard navigation, and explicit form labeling.
-- **Security-First Form Handling**: Client-side validation complemented by server-side verification architecture, with zero client-side exposure of privileged credentials.
+The website is engineered for sophisticated B2B stakeholders, decision-makers, and technical procurement teams:
+
+- **Public Sector Undertakings (PSUs) & State Transmission Utilities**: State DISCOMs, central/state electricity boards, and renewable energy evacuation nodal agencies.
+- **Industrial Plant Developers & Process Industries**: Chemical, steel, automotive, textile, pharmaceutical, and manufacturing plants requiring turnkey HT/LT power distribution.
+- **Commercial & Infrastructure EPC Primes**: Real estate developers, data center builders, metro rail contractors, and smart city infrastructure authorities.
+- **Electrical Consultants & Chartered Engineers**: Technical advisors preparing tenders, validating vendor empanelment lists, and inspecting contractor execution history.
+
+---
+
+## 4. Planned Site Architecture & Pages
+
+1. **Home (`/`)**: Executive overview of Powertech's capabilities, service verticals, safety standards, and project verification highlights.
+2. **About Us (`/about`)**: Company background, vision, statutory credentials, and corporate milestones.
+3. **Services Hub (`/services`)**: Turnkey EPC electrical engineering portfolio.
+   - **Substations & Switchyards (`/services/substations-switchyards`)**: HT/EHV substations up to transmission voltage classes.
+   - **Industrial Electrification (`/services/industrial-electrification`)**: Turnkey plant power distribution, MCC/PCC panels, busducts.
+   - **Transmission Lines (`/services/transmission-lines`)**: Overhead tower foundation, erection, and stringing.
+   - **Underground Cabling (`/services/underground-cabling`)**: Trenchless HDD, cable laying, straight jointing, and testing.
+   - **Township Electrification (`/services/township-electrification`)**: Distribution transformers, compact substations, RMU automation.
+   - **AMC & Breakdown Services (`/services/amc-breakdown`)**: 24/7 emergency response, oil filtration, and preventive testing.
+4. **Capabilities (`/capabilities`)**: Machinery, heavy erection equipment, precision testing instruments, and workforce capacity.
+5. **Projects (`/projects`)**: Audited track record of completed and ongoing infrastructure contracts.
+6. **Leadership (`/leadership`)**: Profiles of directors, partners, and chief technical engineers.
+7. **Certifications (`/certifications`)**: State electrical contractor licenses, ISO 9001/14001/45001 accreditations.
+8. **Contact & Tenders (`/contact`)**: Technical enquiry submission, RFP channels, registered office coordinates.
+
+---
+
+## 5. Technology Stack
+
+- **Core Framework**: Next.js 16 (App Router, Server Components by default)
+- **Language**: TypeScript 5 (Strict Mode, 100% typed interfaces)
+- **Styling**: Tailwind CSS v4 with custom design tokens via `@theme`
+- **Iconography**: Lucide React
+- **Animation**: Framer Motion (for controlled micro-interactions)
+- **Code Quality**: ESLint, Prettier with Tailwind sorting plugin
+- **Backend / Database**: Supabase (isolated safe client wrapper; optional until backend features are activated)
+- **Hosting Target**: Vercel-compatible edge architecture
+
+---
+
+## 6. Development Phases
+
+- **Phase 1: Environment & Architecture (Current Phase)**:
+  - Repository setup, tooling configuration, design token system, directory layout, reusable UI/layout primitives, route skeletons, SEO foundation, documentation, and zero-fake-data schemas.
+- **Phase 2: Source Data Ingestion & Content Audit**:
+  - Ingestion of the official Powertech Company Profile PDF, audit against `CONTENT-VERIFICATION.md`, and population of data stores (`company.ts`, `services.ts`, `projects.ts`, etc.).
+- **Phase 3: Visual Design & Page Assembly**:
+  - Industrial engineering aesthetic implementation, high-contrast layouts, typography refinement, and page-by-page component assembly.
+- **Phase 4: Backend & Enquiry Channel Activation**:
+  - Form route handlers, Supabase database integration (if active), captcha spam protection, and automated email notifications.
+- **Phase 5: Performance Optimization, WCAG Audit & Launch**:
+  - Core Web Vitals profiling, Lighthouse 95+ validation, cross-browser testing, accessibility audit, and production deployment.
