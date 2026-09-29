@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { NAV_ITEMS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { PowertechLogo } from "@/components/ui/PowertechLogo";
 
 export function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,6 +42,12 @@ export function MobileNav() {
           id="mobile-navigation"
           className="border-border bg-background fixed inset-x-0 top-16 z-50 border-b px-4 py-6 shadow-lg sm:px-6"
         >
+          <div className="mb-4 flex items-center justify-between border-b border-slate-100 pb-3">
+            <PowertechLogo height={34} className="h-8 w-auto" />
+            <span className="text-[10px] font-bold tracking-widest text-[#EA580C] uppercase">
+              EPC CONTRACTORS
+            </span>
+          </div>
           <nav className="flex flex-col space-y-3">
             {NAV_ITEMS.map((item) => (
               <div key={item.label} className="border-border/50 border-b pb-2">

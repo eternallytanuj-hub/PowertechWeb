@@ -1,138 +1,299 @@
 @import "tailwindcss";
 
 /* ==============================================================================
-   Powertech Engineers Design Token System
-   Theme Palette & Visual Foundation directly aligned with Company Profile:
-   - Navy: #0B2545 & #071D36 (Trust, Corporate Authority)
-   - Electric Blue: #0284C7 (Precision, High-Voltage Power)
-   - Energy Orange: #F97316 & #EA580C (Power, Activity, Callout Quotes)
-   - Safety Green: #16A34A & #15803D (Engineering Accuracy, Environmental Care)
+   Powertech Engineers - Modern Industrial & Utility Design System
+   Exact tokens & keyframes from live platform https://www.powertechengineers.com
    ============================================================================== */
 
 :root {
-  /* Brand Primary & Accents */
-  --primary: #071d36;
-  --primary-hover: #0b2e59;
+  --font-size: 16px;
+  --background: #f7f8fb;
+  --foreground: #101447;
+  --card: #ffffff;
+  --card-foreground: #101447;
+  --popover: #ffffff;
+  --popover-foreground: #101447;
+  --primary: #111650;
   --primary-foreground: #ffffff;
-
-  --secondary: #0284c7;
-  --secondary-hover: #0369a1;
-  --secondary-foreground: #ffffff;
-
-  --accent: #ea580c;
-  --accent-light: #f97316;
+  --secondary: #11165014;
+  --secondary-foreground: #111650;
+  --muted: #eef1f5;
+  --muted-foreground: #5d6680;
+  --accent: #f08020;
   --accent-foreground: #ffffff;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: #11165024;
+  --input: transparent;
+  --input-background: #f3f3f5;
+  --ring: #f0802061;
+  --radius: 0.75rem;
 
-  --success: #15803d;
-  --success-light: #22c55e;
-  --success-foreground: #ffffff;
+  --glass-background: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.35);
+  --glass-blur: 16px;
+  --glass-shadow: 0 8px 32px 0 rgba(16, 20, 71, 0.08);
 
-  --warning: #d97706;
-  --warning-foreground: #ffffff;
-
-  --error: #dc2626;
-  --error-foreground: #ffffff;
-
-  /* Surfaces & Backgrounds */
-  --background: #ffffff;
-  --surface: #f8fafc;
-  --surface-raised: #ffffff;
-  --surface-dark: #071d36;
-  --foreground: #0f172a;
-  --foreground-muted: #475569;
-
-  /* Borders & Dividers */
-  --border: #e2e8f0;
-  --border-subtle: #f1f5f9;
-  --ring: #0284c7;
-
-  /* Geometry & Elevations */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.375rem;
-  --radius-lg: 0.5rem;
-  --radius-xl: 0.75rem;
-  --radius-2xl: 1rem;
-  --radius-full: 9999px;
-
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-
-  /* Transitions */
-  --duration-fast: 150ms;
-  --duration-normal: 250ms;
-  --duration-slow: 400ms;
+  --gradient-blue: linear-gradient(135deg, #111650 0%, #0284c7 100%);
+  --gradient-energy: linear-gradient(135deg, #f08020 0%, #ea580c 100%);
 }
 
-@theme {
-  --color-primary: var(--primary);
-  --color-primary-hover: var(--primary-hover);
-  --color-primary-foreground: var(--primary-foreground);
+.dark {
+  --background: #080a2c;
+  --foreground: #f8fafc;
+  --card: #0e123a;
+  --card-foreground: #f8fafc;
+  --popover: #0e123a;
+  --popover-foreground: #f8fafc;
+  --primary: #f08020;
+  --primary-foreground: #ffffff;
+  --secondary: #f0802021;
+  --secondary-foreground: #ffce9f;
+  --muted: #121844d1;
+  --muted-foreground: #aeb4c9;
+  --accent: #f08020;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #ffffff26;
+  --input: #0f172ab3;
+  --ring: #f080206b;
 
-  --color-secondary: var(--secondary);
-  --color-secondary-hover: var(--secondary-hover);
-  --color-secondary-foreground: var(--secondary-foreground);
-
-  --color-accent: var(--accent);
-  --color-accent-light: var(--accent-light);
-  --color-accent-foreground: var(--accent-foreground);
-
-  --color-success: var(--success);
-  --color-success-light: var(--success-light);
-  --color-success-foreground: var(--success-foreground);
-
-  --color-warning: var(--warning);
-  --color-warning-foreground: var(--warning-foreground);
-
-  --color-error: var(--error);
-  --color-error-foreground: var(--error-foreground);
-
-  --color-background: var(--background);
-  --color-surface: var(--surface);
-  --color-surface-raised: var(--surface-raised);
-  --color-surface-dark: var(--surface-dark);
-  --color-foreground: var(--foreground);
-  --color-muted: var(--foreground-muted);
-  --color-border: var(--border);
-  --color-border-subtle: var(--border-subtle);
-  --color-ring: var(--ring);
-
-  /* Fonts */
-  --font-sans:
-    var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
-  --font-mono: var(--font-geist-mono), monospace;
-}
-
-/* Base resets & accessible defaults */
-html {
-  scroll-behavior: smooth;
+  --glass-background: rgba(14, 18, 58, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-blur: 16px;
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans);
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-image: radial-gradient(at top, #11165012, #0000 52%), radial-gradient(at bottom, #f0802012, #0000 55%);
+  background-size: 100% 100%;
+  background-attachment: fixed;
 }
 
-/* Accessible focus visible utility */
-:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
+/* Glassmorphism utility */
+.glass {
+  background: var(--glass-background);
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
 }
 
-/* Accessibility: Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+.gradient-energy {
+  background-image: var(--gradient-energy);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.gradient-blue {
+  background-image: var(--gradient-blue);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Animations & Effects */
+@keyframes circuitScan {
+  0% {
+    opacity: 0.2;
+    background-position: 0 0, 0 0;
   }
+  50% {
+    opacity: 0.42;
+  }
+  to {
+    opacity: 0.2;
+    background-position: 120px 120px, -120px 60px;
+  }
+}
+
+@keyframes signalSweep {
+  0% {
+    opacity: 0;
+    transform: translate(-110%) skew(-18deg);
+  }
+  18% {
+    opacity: 0.8;
+  }
+  45% {
+    opacity: 0.26;
+  }
+  to {
+    opacity: 0;
+    transform: translate(125%) skew(-18deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.75;
+  }
+  to {
+    opacity: 0.4;
+  }
+}
+
+@keyframes microFloat {
+  0%, to {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes ringPulse {
+  0% {
+    opacity: 0.18;
+    transform: scale(0.94);
+  }
+  50% {
+    opacity: 0.48;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 0.18;
+    transform: scale(0.94);
+  }
+}
+
+.hero-circuit-grid {
+  background-image: linear-gradient(#ffffff17 1px, #0000 1px), linear-gradient(90deg, #ffffff14 1px, #0000 1px);
+  background-size: 48px 48px, 48px 48px;
+  animation: 18s linear infinite circuitScan;
+  -webkit-mask-image: radial-gradient(circle at 58% 48%, #000 0%, #0000 68%);
+  mask-image: radial-gradient(circle at 58% 48%, #000 0%, #0000 68%);
+}
+
+.hero-signal-sweep:after,
+.navbar-signal:after {
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(90deg, #0000, #f0802057, #0000);
+  animation: 5.8s ease-in-out infinite signalSweep;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.pulse-glow {
+  animation: 3.5s ease-in-out infinite pulseGlow;
+}
+
+.motion-float {
+  animation: 5s ease-in-out infinite microFloat;
+}
+
+.motion-ring {
+  animation: 4.5s ease-in-out infinite ringPulse;
+}
+
+/* Kinetic Cards from Live Site */
+.kinetic-card {
+  isolation: isolate;
+  position: relative;
+  overflow: hidden;
+}
+
+.kinetic-card:before {
+  content: "";
+  z-index: -1;
+  border-radius: inherit;
+  opacity: 0;
+  background: radial-gradient(circle at 18% 8%, #f0802038, #0000 28%), linear-gradient(115deg, #0000, #ffffff47 42%, #0000 62%);
+  transition: opacity 0.35s, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  left: -1px;
+  transform: translate(-18%);
+}
+
+.kinetic-card:hover:before {
+  opacity: 1;
+  transform: translate(18%);
+}
+
+.electric-lift {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s, border-color 0.35s;
+}
+
+.electric-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px #10144720, 0 0 0 1px #f0802038;
+}
+
+.dynamic-section-field {
+  pointer-events: none;
+  opacity: 0.85;
+  background: radial-gradient(circle at 12% 24%, #f0802014, #0000 26%), radial-gradient(circle at 86% 36%, #17814a14, #0000 28%), linear-gradient(120deg, #0000, #11165009 52%, #0000);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.dynamic-section-field:after {
+  content: "";
+  background-image: linear-gradient(#1116500f 1px, #0000 1px), linear-gradient(90deg, #1116500d 1px, #0000 1px);
+  background-size: 54px 54px;
+  animation: 24s linear infinite circuitScan;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-mask-image: linear-gradient(90deg, #0000, #000 20%, #000 80%, #0000);
+  mask-image: linear-gradient(90deg, #0000, #000 20%, #000 80%, #0000);
+}
+
+.magnetic-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.magnetic-button:after {
+  content: "";
+  background: linear-gradient(90deg, #0000, #ffffff52, #0000);
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translate(-120%) skew(-18deg);
+}
+
+.magnetic-button:hover:after {
+  transform: translate(120%) skew(-18deg);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
