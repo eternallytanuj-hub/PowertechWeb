@@ -11,62 +11,24 @@ export const DEFAULT_SITE_URL =
  */
 export const NAV_ITEMS: NavItem[] = [
   {
-    label: "Home",
-    href: "/",
+    label: "1. Profile",
+    href: "#profile",
   },
   {
-    label: "About Us",
-    href: "/about",
+    label: "2. Overview",
+    href: "#overview",
   },
   {
-    label: "Services",
-    href: "/services",
-    children: [
-      {
-        label: "Substations & Switchyards",
-        href: "/services/substations-switchyards",
-      },
-      {
-        label: "Industrial Electrification",
-        href: "/services/industrial-electrification",
-      },
-      {
-        label: "Transmission Lines",
-        href: "/services/transmission-lines",
-      },
-      {
-        label: "Underground Cabling",
-        href: "/services/underground-cabling",
-      },
-      {
-        label: "Township Electrification",
-        href: "/services/township-electrification",
-      },
-      {
-        label: "AMC & Breakdown Services",
-        href: "/services/amc-breakdown",
-      },
-    ],
+    label: "3. Salient Features",
+    href: "#features",
   },
   {
-    label: "Capabilities",
-    href: "/capabilities",
+    label: "4. Major Activities",
+    href: "#activities",
   },
   {
-    label: "Projects",
-    href: "/projects",
-  },
-  {
-    label: "Leadership",
-    href: "/leadership",
-  },
-  {
-    label: "Certifications",
-    href: "/certifications",
-  },
-  {
-    label: "Contact",
-    href: "/contact",
+    label: "5. Contact & Info",
+    href: "#contact",
   },
 ];
 
@@ -74,9 +36,9 @@ export const NAV_ITEMS: NavItem[] = [
  * Secondary / Footer Quick Links
  */
 export const FOOTER_QUICK_LINKS: NavItem[] = [
-  { label: "Company Overview", href: "/about" },
-  { label: "Core Capabilities", href: "/capabilities" },
-  { label: "Track Record", href: "/projects" },
-  { label: "Accreditations", href: "/certifications" },
-  { label: "Enquiry & Support", href: "/contact" },
+  { label: "Company Profile (Slide 1)", href: "#profile" },
+  { label: "Company Overview (Slide 2)", href: "#overview" },
+  { label: "Salient Features (Slide 3)", href: "#features" },
+  { label: "Major Activities (Slide 4)", href: "#activities" },
+  { label: "General Info & Contact (Slide 5)", href: "#contact" },
 ];
