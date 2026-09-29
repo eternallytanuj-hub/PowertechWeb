@@ -15,12 +15,12 @@ export const servicesData: ServiceItem[] = [
     shortDescription:
       "Engineering, supply, civil erection, testing, and commissioning of outdoor and indoor substations and switchyards.",
     description:
-      "Comprehensive substation and switchyard execution spanning design engineering, civil foundations, structural erection, equipment installation, control panel integration, and statutory commissioning.",
+      "Comprehensive turnkey substation and switchyard execution spanning design engineering, civil foundations, structural erection, power transformer installation, control relay integration, and statutory commissioning.",
     capabilities: [
-      "[TODO: Verify voltage ratings e.g. 11kV, 33kV, 66kV, 132kV, 220kV from company profile]",
-      "[TODO: Verify switchyard civil and structural scope details]",
-      "[TODO: Verify transformer erection and oil filtration capacity]",
-      "[TODO: Verify relay testing, SCADA integration, and statutory inspection support]",
+      "Electrification and commissioning of 400/220/132/33/11 KV substations and switchyards",
+      "Civil foundations, structural gantry erection, and equipment staging",
+      "Power transformer erection, oil filtration, and secondary testing",
+      "Control relay integration, protection testing, and statutory inspection compliance",
     ],
     image: null, // [TODO: Attach verified high-resolution project photograph]
     metadata: {
