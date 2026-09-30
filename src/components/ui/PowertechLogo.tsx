@@ -18,10 +18,7 @@ export function PowertechLogo({
   const width = Math.round(height * 2.44);
 
   if (useImage) {
-    const src =
-      variant === "light"
-        ? "/images/logo-dark-bg.png"
-        : "/images/logo-transparent.png";
+    const src = variant === "light" ? "/images/logo-dark-bg.png" : "/images/logo-transparent.png";
 
     return (
       <Image

@@ -59,8 +59,8 @@ export function ProcurementFAQ() {
             Common enterprise review questions
           </h2>
           <p className="mt-3 text-xs leading-relaxed text-slate-600 sm:text-sm">
-            Fast answers for corporate buyers, utility procurement teams, and project owners evaluating
-            Powertech Engineers for electrical infrastructure mandates.
+            Fast answers for corporate buyers, utility procurement teams, and project owners
+            evaluating Powertech Engineers for electrical infrastructure mandates.
           </p>
         </div>
 

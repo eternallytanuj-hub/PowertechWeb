@@ -108,7 +108,8 @@ export function ClientLogos() {
             Our Main Clients
           </h2>
           <p className="mt-2 text-xs font-medium text-slate-500 sm:text-sm">
-            Trusted by India’s state power transmission corporations, distribution boards, and heavy industrial PSUs.
+            Trusted by India’s state power transmission corporations, distribution boards, and heavy
+            industrial PSUs.
           </p>
         </div>
 

@@ -99,9 +99,7 @@ export function SiteGallery() {
   const [lightboxPhoto, setLightboxPhoto] = useState<SitePhoto | null>(null);
 
   const filteredPhotos =
-    activeTab === "All"
-      ? SITE_PHOTOS
-      : SITE_PHOTOS.filter((p) => p.category === activeTab);
+    activeTab === "All" ? SITE_PHOTOS : SITE_PHOTOS.filter((p) => p.category === activeTab);
 
   return (
     <section id="documentation" className="relative scroll-mt-28 overflow-hidden bg-slate-50 py-20">
@@ -120,8 +118,9 @@ export function SiteGallery() {
             Building India’s power infrastructure — on the ground, at scale
           </h2>
           <p className="mt-3 text-xs leading-relaxed text-slate-600 sm:text-sm">
-            Every site captured here represents real field execution by Powertech Engineers — from extra-high-voltage
-            substation erection and panel integration to heavy cabling, AIS construction, and safety systems.
+            Every site captured here represents real field execution by Powertech Engineers — from
+            extra-high-voltage substation erection and panel integration to heavy cabling, AIS
+            construction, and safety systems.
           </p>
         </div>
 
@@ -133,23 +132,32 @@ export function SiteGallery() {
               <span>About Powertech Engineers</span>
             </div>
             <p className="text-xs leading-relaxed text-slate-700 sm:text-sm">
-              Powertech Engineers is a Class-A electrical infrastructure contractor with two decades of turnkey execution
-              across India’s state power utilities. Operating from registered corporate offices in Noida (UP) and Delhi,
-              the company delivers end-to-end contracting for EHV substations, overhead and underground T&D networks,
-              heavy cabling, and industrial electrical systems.
+              Powertech Engineers is a Class-A electrical infrastructure contractor with two decades
+              of turnkey execution across India’s state power utilities. Operating from registered
+              corporate offices in Noida (UP) and Delhi, the company delivers end-to-end contracting
+              for EHV substations, overhead and underground T&D networks, heavy cabling, and
+              industrial electrical systems.
             </p>
             <p className="mt-3 text-xs leading-relaxed text-slate-600 sm:text-sm">
-              With a verifiable track record spanning UPPTCL, DVVNL, HVPNL, BSPTCL, JSEB, and PDD Jammu & Kashmir, the
-              organization is recognized for no-handoff-gap delivery — from engineering survey and procurement to energization
-              and formal utility handover.
+              With a verifiable track record spanning UPPTCL, DVVNL, HVPNL, BSPTCL, JSEB, and PDD
+              Jammu & Kashmir, the organization is recognized for no-handoff-gap delivery — from
+              engineering survey and procurement to energization and formal utility handover.
             </p>
           </div>
 
           <div className="grid grid-cols-3 gap-3 md:col-span-5 md:grid-cols-1">
             {[
               { label: "Years of field execution", value: "20+", desc: "Established April 2004" },
-              { label: "State utility networks", value: "6+", desc: "UP, Bihar, Haryana, J&K, etc." },
-              { label: "Execution standard", value: "Class-A", desc: "Turnkey EPC with ISO 9001:2015" },
+              {
+                label: "State utility networks",
+                value: "6+",
+                desc: "UP, Bihar, Haryana, J&K, etc.",
+              },
+              {
+                label: "Execution standard",
+                value: "Class-A",
+                desc: "Turnkey EPC with ISO 9001:2015",
+              },
             ].map((stat) => (
               <div
                 key={stat.label}
@@ -185,7 +193,8 @@ export function SiteGallery() {
         {/* Photo Gallery Grid */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {filteredPhotos.map((photo, idx) => {
-            const isSpanTwo = activeTab === "All" && photo.featured && (idx === 0 || idx === 7 || idx === 8);
+            const isSpanTwo =
+              activeTab === "All" && photo.featured && (idx === 0 || idx === 7 || idx === 8);
             return (
               <div
                 key={photo.id}
@@ -204,15 +213,17 @@ export function SiteGallery() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent transition-opacity group-hover:opacity-90" />
 
-                  <div className="absolute top-3 right-3 rounded-full bg-black/40 p-1.5 text-white backdrop-blur-md opacity-0 transition-opacity group-hover:opacity-100">
+                  <div className="absolute top-3 right-3 rounded-full bg-black/40 p-1.5 text-white opacity-0 backdrop-blur-md transition-opacity group-hover:opacity-100">
                     <ZoomIn className="h-4 w-4" />
                   </div>
 
                   <div className="absolute right-3 bottom-3 left-3 text-white">
-                    <span className="inline-block rounded-md bg-[#EA580C] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider">
+                    <span className="inline-block rounded-md bg-[#EA580C] px-2 py-0.5 text-[10px] font-bold tracking-wider uppercase">
                       {photo.categoryLabel}
                     </span>
-                    <h3 className="mt-1 text-xs font-bold sm:text-sm line-clamp-2">{photo.caption}</h3>
+                    <h3 className="mt-1 line-clamp-2 text-xs font-bold sm:text-sm">
+                      {photo.caption}
+                    </h3>
                   </div>
                 </div>
               </div>

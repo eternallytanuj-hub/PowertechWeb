@@ -2,7 +2,18 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Send, MapPin, Phone, Mail, Globe, CheckCircle2, MessageSquare, Clock, ShieldCheck, ArrowRight } from "lucide-react";
+import {
+  Send,
+  MapPin,
+  Phone,
+  Mail,
+  Globe,
+  CheckCircle2,
+  MessageSquare,
+  Clock,
+  ShieldCheck,
+  ArrowRight,
+} from "lucide-react";
 import { PowertechLogo } from "@/components/ui/PowertechLogo";
 
 export function B2BInquiryTerminal() {
@@ -31,16 +42,19 @@ export function B2BInquiryTerminal() {
   );
 
   return (
-    <section id="contact" className="relative scroll-mt-28 overflow-hidden bg-[#111650] py-20 text-white">
+    <section
+      id="contact"
+      className="relative scroll-mt-28 overflow-hidden bg-[#111650] py-20 text-white"
+    >
       {/* Circuit Grid Background from Live Site */}
       <div className="hero-circuit-grid absolute inset-0 opacity-25" />
       <div className="absolute inset-0 bg-radial-[circle_at_25%_20%] from-[#f0802030] to-transparent opacity-40" />
 
-      <div className="container relative z-10 mx-auto px-4 sm:px-6">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6">
         {/* Section Heading matching Live Site */}
         <div className="mx-auto mb-14 max-w-3xl text-center">
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 backdrop-blur-md">
-            <span className="h-2 w-2 rounded-full bg-[#EA580C] animate-pulse" />
+            <span className="h-2 w-2 animate-pulse rounded-full bg-[#EA580C]" />
             <span className="text-xs font-bold tracking-wider text-white uppercase">
               B2B Business Inquiry Terminal
             </span>
@@ -49,25 +63,27 @@ export function B2BInquiryTerminal() {
             Route project parameters directly to the engineering desk
           </h2>
           <p className="mt-4 text-xs leading-relaxed text-white/80 sm:text-sm">
-            Share contracting requirements, utility package details, site constraints, voltage class,
-            cabling scope, or commissioning timelines for enterprise review.
+            Share contracting requirements, utility package details, site constraints, voltage
+            class, cabling scope, or commissioning timelines for enterprise review.
           </p>
         </div>
 
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12">
           {/* Left Column: Interactive Form */}
           <div className="lg:col-span-7">
-            <div className="kinetic-card rounded-2xl border border-white/20 bg-white/10 p-6 backdrop-blur-xl shadow-2xl sm:p-8">
+            <div className="kinetic-card rounded-2xl border border-white/20 bg-white/10 p-6 shadow-2xl backdrop-blur-xl sm:p-8">
               {submitted ? (
                 <div className="py-10 text-center">
                   <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400">
                     <CheckCircle2 className="h-10 w-10" />
                   </div>
-                  <h3 className="mt-4 text-xl font-bold text-white">Inquiry Parameters Captured!</h3>
+                  <h3 className="mt-4 text-xl font-bold text-white">
+                    Inquiry Parameters Captured!
+                  </h3>
                   <p className="mx-auto mt-2 max-w-md text-xs leading-relaxed text-white/80 sm:text-sm">
-                    Thank you, {formState.name || "Client"}. Your project scope parameters have been logged.
-                    Our technical and tendering desk will evaluate your requirements and reach out via{" "}
-                    {formState.phone || formState.email || "your contact channels"}.
+                    Thank you, {formState.name || "Client"}. Your project scope parameters have been
+                    logged. Our technical and tendering desk will evaluate your requirements and
+                    reach out via {formState.phone || formState.email || "your contact channels"}.
                   </p>
 
                   <div className="mt-6 flex flex-wrap justify-center gap-3">
@@ -92,7 +108,9 @@ export function B2BInquiryTerminal() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="mb-2 flex items-center justify-between border-b border-white/10 pb-3">
-                    <span className="text-xs font-bold text-white/90">Enterprise Parameters Form</span>
+                    <span className="text-xs font-bold text-white/90">
+                      Enterprise Parameters Form
+                    </span>
                     <span className="rounded bg-[#EA580C] px-2 py-0.5 text-[10px] font-bold text-white uppercase">
                       Fast Routing
                     </span>
@@ -109,7 +127,7 @@ export function B2BInquiryTerminal() {
                         placeholder="Representative name"
                         value={formState.name}
                         onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                        className="w-full rounded-xl border border-white/20 bg-white/10 px-3.5 py-2.5 text-xs text-white placeholder-white/40 focus:border-[#EA580C] focus:outline-none focus:ring-1 focus:ring-[#EA580C]"
+                        className="w-full rounded-xl border border-white/20 bg-white/10 px-3.5 py-2.5 text-xs text-white placeholder-white/40 focus:border-[#EA580C] focus:ring-1 focus:ring-[#EA580C] focus:outline-none"
                       />
                     </div>
 
@@ -123,7 +141,7 @@ export function B2BInquiryTerminal() {
                         placeholder="Mobile or office phone"
                         value={formState.phone}
                         onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
-                        className="w-full rounded-xl border border-white/20 bg-white/10 px-3.5 py-2.5 text-xs text-white placeholder-white/40 focus:border-[#EA580C] focus:outline-none focus:ring-1 focus:ring-[#EA580C]"
+                        className="w-full rounded-xl border border-white/20 bg-white/10 px-3.5 py-2.5 text-xs text-white placeholder-white/40 focus:border-[#EA580C] focus:ring-1 focus:ring-[#EA580C] focus:outline-none"
                       />
                     </div>
                   </div>
@@ -139,7 +157,7 @@ export function B2BInquiryTerminal() {
                         placeholder="corporate@domain.com"
                         value={formState.email}
                         onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                        className="w-full rounded-xl border border-white/20 bg-white/10 px-3.5 py-2.5 text-xs text-white placeholder-white/40 focus:border-[#EA580C] focus:outline-none focus:ring-1 focus:ring-[#EA580C]"
+                        className="w-full rounded-xl border border-white/20 bg-white/10 px-3.5 py-2.5 text-xs text-white placeholder-white/40 focus:border-[#EA580C] focus:ring-1 focus:ring-[#EA580C] focus:outline-none"
                       />
                     </div>
 
@@ -149,8 +167,10 @@ export function B2BInquiryTerminal() {
                       </label>
                       <select
                         value={formState.voltageClass}
-                        onChange={(e) => setFormState({ ...formState, voltageClass: e.target.value })}
-                        className="w-full rounded-xl border border-white/20 bg-[#111650] px-3.5 py-2.5 text-xs text-white focus:border-[#EA580C] focus:outline-none focus:ring-1 focus:ring-[#EA580C]"
+                        onChange={(e) =>
+                          setFormState({ ...formState, voltageClass: e.target.value })
+                        }
+                        className="w-full rounded-xl border border-white/20 bg-[#111650] px-3.5 py-2.5 text-xs text-white focus:border-[#EA580C] focus:ring-1 focus:ring-[#EA580C] focus:outline-none"
                       >
                         <option value="400/220/132 KV Substations & Switchyards">
                           Substations & Switchyards up to 400 kV
@@ -187,7 +207,7 @@ export function B2BInquiryTerminal() {
                       placeholder="Mention voltage class, utility framework, location, cabling/substation scope, timelines, and documentation needs."
                       value={formState.parameters}
                       onChange={(e) => setFormState({ ...formState, parameters: e.target.value })}
-                      className="w-full rounded-xl border border-white/20 bg-white/10 p-3.5 text-xs text-white placeholder-white/40 focus:border-[#EA580C] focus:outline-none focus:ring-1 focus:ring-[#EA580C]"
+                      className="w-full rounded-xl border border-white/20 bg-white/10 p-3.5 text-xs text-white placeholder-white/40 focus:border-[#EA580C] focus:ring-1 focus:ring-[#EA580C] focus:outline-none"
                     />
                   </div>
 
@@ -216,13 +236,11 @@ export function B2BInquiryTerminal() {
               <span className="text-xs font-bold tracking-wider text-[#EA580C] uppercase">
                 Corporate Routing & Hubs
               </span>
-              <h3 className="mt-1 text-xl font-bold text-white sm:text-2xl">
-                Administrative Hubs
-              </h3>
+              <h3 className="mt-1 text-xl font-bold text-white sm:text-2xl">Administrative Hubs</h3>
             </div>
 
             {/* Noida Hub */}
-            <div className="kinetic-card electric-lift rounded-2xl border border-white/20 bg-white/10 p-5 backdrop-blur-md overflow-hidden">
+            <div className="kinetic-card electric-lift overflow-hidden rounded-2xl border border-white/20 bg-white/10 p-5 backdrop-blur-md">
               <div className="relative mb-3 h-40 w-full overflow-hidden rounded-xl border border-white/15">
                 <Image
                   src="/images/corporate-office.png"
@@ -233,10 +251,12 @@ export function B2BInquiryTerminal() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                 <div className="absolute bottom-2 left-2 flex items-center gap-1.5">
-                  <span className="rounded bg-[#EA580C] px-2 py-0.5 text-[9px] font-bold text-white uppercase tracking-wider">
+                  <span className="rounded bg-[#EA580C] px-2 py-0.5 text-[9px] font-bold tracking-wider text-white uppercase">
                     Corporate HQ
                   </span>
-                  <span className="text-[10px] font-medium text-white/90">E-195, Sector-63, Noida</span>
+                  <span className="text-[10px] font-medium text-white/90">
+                    E-195, Sector-63, Noida
+                  </span>
                 </div>
               </div>
               <div className="mb-2 flex items-center justify-between">
@@ -283,18 +303,27 @@ export function B2BInquiryTerminal() {
                 Direct Engineering Hotlines
               </div>
               <div className="mt-2 flex flex-wrap gap-2 text-xs font-bold text-white">
-                <a href="tel:9873731300" className="rounded-lg bg-white/10 px-3 py-1.5 hover:bg-white/20">
+                <a
+                  href="tel:9873731300"
+                  className="rounded-lg bg-white/10 px-3 py-1.5 hover:bg-white/20"
+                >
                   9873731300
                 </a>
-                <a href="tel:9717893182" className="rounded-lg bg-white/10 px-3 py-1.5 hover:bg-white/20">
+                <a
+                  href="tel:9717893182"
+                  className="rounded-lg bg-white/10 px-3 py-1.5 hover:bg-white/20"
+                >
                   9717893182
                 </a>
-                <a href="tel:9971712883" className="rounded-lg bg-white/10 px-3 py-1.5 hover:bg-white/20">
+                <a
+                  href="tel:9971712883"
+                  className="rounded-lg bg-white/10 px-3 py-1.5 hover:bg-white/20"
+                >
                   9971712883
                 </a>
               </div>
 
-              <div className="mt-4 flex flex-col gap-2 text-xs text-white/80 border-t border-white/10 pt-3">
+              <div className="mt-4 flex flex-col gap-2 border-t border-white/10 pt-3 text-xs text-white/80">
                 <div className="flex items-center gap-2">
                   <Mail className="h-3.5 w-3.5 text-[#EA580C]" />
                   <a href="mailto:engineerspowertech1@yahoo.com" className="hover:underline">

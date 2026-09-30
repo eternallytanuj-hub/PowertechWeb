@@ -54,7 +54,8 @@ export function QuickEnquiryForm() {
           <h4 className="mt-3 text-base font-bold text-slate-900">Enquiry Received!</h4>
           <p className="mt-1 text-xs text-slate-600">
             Thank you, {formData.name || "Client"}. Our engineering team will review your
-            requirements and reach out shortly at {formData.phone || formData.email || "your contact details"}.
+            requirements and reach out shortly at{" "}
+            {formData.phone || formData.email || "your contact details"}.
           </p>
           <div className="mt-4 flex flex-col justify-center gap-2 sm:flex-row">
             <a

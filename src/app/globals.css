@@ -65,12 +65,39 @@
   --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+}
+
 body {
   background-color: var(--background);
   color: var(--foreground);
   background-image: radial-gradient(at top, #11165012, #0000 52%), radial-gradient(at bottom, #f0802012, #0000 55%);
   background-size: 100% 100%;
   background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* Scroll-Driven Motion Helpers */
+.scroll-smooth-container {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+@keyframes scrollFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-scroll-reveal {
+  animation: scrollFadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 /* Glassmorphism utility */

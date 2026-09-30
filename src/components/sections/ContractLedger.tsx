@@ -1,7 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
-import { FileText, Search, ShieldCheck, CheckCircle2, Building, MapPin, ExternalLink } from "lucide-react";
+import {
+  FileText,
+  Search,
+  ShieldCheck,
+  CheckCircle2,
+  Building,
+  MapPin,
+  ExternalLink,
+} from "lucide-react";
 
 interface ContractRecord {
   id: string;
@@ -11,7 +19,8 @@ interface ContractRecord {
   region: string;
   state: "Uttar Pradesh" | "Jammu & Kashmir" | "Jharkhand" | "Bihar" | "Haryana" | "Pan-India";
   voltageClass: string;
-  status: "Featured Execution Landmark" | "Completed / Verifiable Execution" | "Major Utility Execution";
+  status:
+    "Featured Execution Landmark" | "Completed / Verifiable Execution" | "Major Utility Execution";
   statusColor: string;
 }
 
@@ -128,7 +137,8 @@ export function ContractLedger() {
   const [searchQuery, setSearchQuery] = useState<string>("");
 
   const filtered = CONTRACT_RECORDS.filter((rec) => {
-    const matchesState = activeState === "All" || rec.state === activeState || rec.state === "Pan-India";
+    const matchesState =
+      activeState === "All" || rec.state === activeState || rec.state === "Pan-India";
     const q = searchQuery.toLowerCase().trim();
     const matchesSearch =
       !q ||
@@ -158,8 +168,9 @@ export function ContractLedger() {
               Corporate proof points across state power utilities
             </h2>
             <p className="mt-3 text-xs leading-relaxed text-slate-600 sm:text-sm">
-              A structured ledger of high-value electrical infrastructure work spanning 400/220/132 KV substations,
-              urban electrification, transmission networks, and turnkey utility execution.
+              A structured ledger of high-value electrical infrastructure work spanning 400/220/132
+              KV substations, urban electrification, transmission networks, and turnkey utility
+              execution.
             </p>
           </div>
 
@@ -202,7 +213,7 @@ export function ContractLedger() {
               placeholder="Search contracts, utilities, scope..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full rounded-xl border border-slate-200 bg-white py-2 pr-4 pl-9 text-xs font-medium text-slate-900 placeholder-slate-400 focus:border-[#EA580C] focus:outline-none focus:ring-1 focus:ring-[#EA580C]"
+              className="w-full rounded-xl border border-slate-200 bg-white py-2 pr-4 pl-9 text-xs font-medium text-slate-900 placeholder-slate-400 focus:border-[#EA580C] focus:ring-1 focus:ring-[#EA580C] focus:outline-none"
             />
           </div>
         </div>
@@ -210,7 +221,7 @@ export function ContractLedger() {
         {/* Procurement Table matching live site */}
         <div className="kinetic-card overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-md">
           {/* Table Header */}
-          <div className="hidden grid-cols-[1.3fr_1.1fr_1.5fr_0.8fr] gap-4 border-b border-slate-200 bg-[#111650] px-6 py-4 text-xs font-bold text-white uppercase tracking-wider lg:grid">
+          <div className="hidden grid-cols-[1.3fr_1.1fr_1.5fr_0.8fr] gap-4 border-b border-slate-200 bg-[#111650] px-6 py-4 text-xs font-bold tracking-wider text-white uppercase lg:grid">
             <div>Project / Scope Name</div>
             <div>Client Utility / Public Body</div>
             <div>Engineering Scope Summary</div>
@@ -235,14 +246,16 @@ export function ContractLedger() {
                     {item.name}
                   </h3>
                   <div className="mt-1 flex items-center gap-1.5 text-[11px] font-medium text-slate-500">
-                    <MapPin className="h-3 w-3 text-slate-400 shrink-0" />
+                    <MapPin className="h-3 w-3 shrink-0 text-slate-400" />
                     <span>{item.region}</span>
                   </div>
                 </div>
 
                 {/* Column 2: Client Utility */}
                 <div className="border-t border-slate-100 pt-2 lg:border-t-0 lg:pt-0">
-                  <div className="text-[10px] font-bold text-slate-400 uppercase lg:hidden">Client Utility</div>
+                  <div className="text-[10px] font-bold text-slate-400 uppercase lg:hidden">
+                    Client Utility
+                  </div>
                   <div className="text-xs font-bold text-slate-800 lg:text-sm">
                     {item.clientUtility}
                   </div>
@@ -250,14 +263,14 @@ export function ContractLedger() {
 
                 {/* Column 3: Scope Summary */}
                 <div className="border-t border-slate-100 pt-2 lg:border-t-0 lg:pt-0">
-                  <div className="text-[10px] font-bold text-slate-400 uppercase lg:hidden">Scope Summary</div>
-                  <p className="text-xs leading-relaxed text-slate-600">
-                    {item.scopeSummary}
-                  </p>
+                  <div className="text-[10px] font-bold text-slate-400 uppercase lg:hidden">
+                    Scope Summary
+                  </div>
+                  <p className="text-xs leading-relaxed text-slate-600">{item.scopeSummary}</p>
                 </div>
 
                 {/* Column 4: Status */}
-                <div className="flex items-center justify-between border-t border-slate-100 pt-2 lg:border-t-0 lg:justify-end lg:pt-0">
+                <div className="flex items-center justify-between border-t border-slate-100 pt-2 lg:justify-end lg:border-t-0 lg:pt-0">
                   <span
                     className={`inline-flex items-center gap-1 rounded-full border px-3 py-1 text-[11px] font-bold ${item.statusColor}`}
                   >
@@ -270,7 +283,8 @@ export function ContractLedger() {
 
             {filtered.length === 0 && (
               <div className="p-10 text-center text-sm font-medium text-slate-500">
-                No contract records matched your search parameters. Try clearing filters or search query.
+                No contract records matched your search parameters. Try clearing filters or search
+                query.
               </div>
             )}
           </div>
@@ -278,8 +292,9 @@ export function ContractLedger() {
 
         {/* Bottom Note */}
         <p className="mt-4 text-center text-xs text-slate-500">
-          Ledger records are structured for institutional and B2B review: client utility, scope summary, project region,
-          voltage class, and execution status are verifiable against client certificates.
+          Ledger records are structured for institutional and B2B review: client utility, scope
+          summary, project region, voltage class, and execution status are verifiable against client
+          certificates.
         </p>
       </div>
     </section>

@@ -170,3 +170,98 @@ export interface FormSubmissionResponse {
   message: string;
   errors?: Record<string, string[]>;
 }
+
+// ==============================================================================
+// Case Study & Detailed Project Story Types
+// ==============================================================================
+
+export interface ProjectPhase {
+  phase: string;
+  title: string;
+  description: string;
+  checkpoints: string[];
+}
+
+export interface CaseStudy {
+  id: string;
+  slug: string;
+  title: string;
+  subtitle: string;
+  client: string;
+  location: string;
+  state: string;
+  voltageClass: string;
+  scopeOfWork: string;
+  completionYear: number | string;
+  heroImage: string;
+  overview: string;
+  phases: {
+    engineering: ProjectPhase;
+    procurementAndConstruction: ProjectPhase;
+    installation: ProjectPhase;
+    testing: ProjectPhase;
+    commissioning: ProjectPhase;
+    finalEnergization: ProjectPhase;
+  };
+  keyAchievements: string[];
+  gallery: { src: string; caption: string }[];
+}
+
+// ==============================================================================
+// Team & Organization Types
+// ==============================================================================
+
+export type TeamDepartment =
+  | "All"
+  | "Directors"
+  | "Engineering Team"
+  | "Project Management"
+  | "Site Engineers"
+  | "Testing & Commissioning";
+
+export interface TeamMember {
+  id: string;
+  name: string;
+  designation: string;
+  department: TeamDepartment;
+  experienceYears: number;
+  qualifications: string[];
+  location: string;
+  bio: string;
+  specialization: string;
+  image?: string;
+}
+
+// ==============================================================================
+// Career & Recruitment Types
+// ==============================================================================
+
+export interface CareerPosition {
+  id: string;
+  title: string;
+  department: string;
+  location: string;
+  type: "Full-Time" | "Contract" | "Site-Based";
+  experienceRequired: string;
+  vacancies: number;
+  description: string;
+  responsibilities: string[];
+  requirements: string[];
+}
+
+// ==============================================================================
+// News & Editorial Milestone Types
+// ==============================================================================
+
+export interface NewsArticle {
+  id: string;
+  title: string;
+  slug: string;
+  category: "Milestone" | "Contract Award" | "Safety" | "Corporate";
+  date: string;
+  readTime: string;
+  summary: string;
+  content: string;
+  image: string;
+  tag: string;
+}
