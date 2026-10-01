@@ -71,7 +71,7 @@ export const AttendanceTab: React.FC<AttendanceTabProps> = ({ attendanceRecords 
 
           <div className="flex flex-wrap items-center gap-3">
             <div className="rounded-xl border border-slate-700 bg-slate-950/80 px-4 py-2 text-right">
-              <div className="text-[10px] text-slate-400 uppercase">Today's Status</div>
+              <div className="text-[10px] text-slate-400 uppercase">Today&apos;s Status</div>
               <div className="font-bold text-white">
                 {isCheckedIn ? "Checked In: 08:15 AM" : "Checked Out: 05:45 PM"}
               </div>

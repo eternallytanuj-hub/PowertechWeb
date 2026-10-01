@@ -136,7 +136,7 @@ export const EmployeeDashboardTab: React.FC<EmployeeDashboardTabProps> = ({
           </div>
           <div className="mt-4">
             <div className="text-2xl font-black text-white">7.5 hrs</div>
-            <div className="text-xs font-semibold text-slate-300">Today's Site Attendance</div>
+            <div className="text-xs font-semibold text-slate-300">Today&apos;s Site Attendance</div>
             <div className="mt-1 flex items-center justify-between text-[11px] text-slate-400">
               <span>This Month: 26 Days</span>
               <span className="text-orange-400 group-hover:translate-x-1 transition-transform inline-flex items-center">

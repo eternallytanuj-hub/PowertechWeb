@@ -145,16 +145,18 @@ export function ProjectCaseStudyModal({ caseStudy, isOpen, onClose }: ProjectCas
 
           {/* Tab Navigation */}
           <div className="flex border-b border-white/10 bg-[#080d1a] px-6 text-xs font-semibold">
-            {[
-              { id: "overview", label: "Executive Overview" },
-              { id: "phases", label: "Engineering to Energization (6 Phases)" },
-              { id: "gallery", label: "Site Gallery" },
-              { id: "achievements", label: "Key Achievements" },
-            ].map((tab) => (
+            {(
+              [
+                { id: "overview", label: "Executive Overview" },
+                { id: "phases", label: "Engineering to Energization (6 Phases)" },
+                { id: "gallery", label: "Site Gallery" },
+                { id: "achievements", label: "Key Achievements" },
+              ] as const
+            ).map((tab) => (
               <button
                 key={tab.id}
                 type="button"
-                onClick={() => setActiveTab(tab.id as any)}
+                onClick={() => setActiveTab(tab.id)}
                 className={`cursor-pointer border-b-2 px-4 py-3.5 transition ${
                   activeTab === tab.id
                     ? "border-[#EA580C] text-[#EA580C]"

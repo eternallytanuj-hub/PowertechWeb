@@ -18,14 +18,14 @@ interface LeaveTabProps {
   leaveRequests: HrmsLeaveRequest[];
 }
 
+type LeaveType = "Casual Leave (CL)" | "Earned Leave (EL)" | "Sick Leave (SL)" | "Site Comp-Off";
+
 export const LeaveTab: React.FC<LeaveTabProps> = ({ leaveRequests }) => {
   const [requests, setRequests] = useState<HrmsLeaveRequest[]>(leaveRequests);
   const [isApplyModalOpen, setIsApplyModalOpen] = useState(false);
 
   // Form State
-  const [leaveType, setLeaveType] = useState<
-    "Casual Leave (CL)" | "Earned Leave (EL)" | "Sick Leave (SL)" | "Site Comp-Off"
-  >("Casual Leave (CL)");
+  const [leaveType, setLeaveType] = useState<LeaveType>("Casual Leave (CL)");
   const [fromDate, setFromDate] = useState("2026-10-20");
   const [toDate, setToDate] = useState("2026-10-22");
   const [reason, setReason] = useState("");
@@ -237,7 +237,7 @@ export const LeaveTab: React.FC<LeaveTabProps> = ({ leaveRequests }) => {
                 <label className="mb-1 block font-semibold text-slate-300">Leave Category</label>
                 <select
                   value={leaveType}
-                  onChange={(e) => setLeaveType(e.target.value as any)}
+                  onChange={(e) => setLeaveType(e.target.value as LeaveType)}
                   className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-2.5 text-xs text-white focus:border-orange-500 focus:outline-none"
                 >
                   <option value="Casual Leave (CL)">Casual Leave (CL) - 4 Days Balance</option>

@@ -15,6 +15,7 @@ import {
   CheckCircle2,
   ChevronRight,
   ArrowRight,
+  type LucideIcon,
 } from "lucide-react";
 
 interface ProcessStage {
@@ -27,7 +28,7 @@ interface ProcessStage {
   safetyProtocol: string;
   photo: string;
   photoCaption: string;
-  icon: any;
+  icon: LucideIcon;
 }
 
 const STAGES: ProcessStage[] = [

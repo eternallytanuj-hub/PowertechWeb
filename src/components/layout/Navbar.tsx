@@ -17,6 +17,7 @@ import {
   FileText,
   Lock,
   ChevronDown,
+  ChevronRight,
   Zap,
   Building,
   HardHat,
@@ -531,13 +532,5 @@ export function Navbar() {
         </div>
       )}
     </header>
-  );
-}
-
-function ChevronRight(props: any) {
-  return (
-    <svg {...props} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-    </svg>
   );
 }

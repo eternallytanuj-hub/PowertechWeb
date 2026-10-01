@@ -20,15 +20,21 @@ interface ServiceRequestsTabProps {
   initialRequests: HrmsServiceRequest[];
 }
 
+type ServiceRequestCategory =
+  | "Site PPE & Tools"
+  | "IT / Portal Access"
+  | "HR Letter Request"
+  | "Travel & Site Relocation";
+
+type ServiceRequestPriority = "High" | "Medium" | "Urgent";
+
 export const ServiceRequestsTab: React.FC<ServiceRequestsTabProps> = ({ initialRequests }) => {
   const [requests, setRequests] = useState<HrmsServiceRequest[]>(initialRequests);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Form State
-  const [category, setCategory] = useState<
-    "Site PPE & Tools" | "IT / Portal Access" | "HR Letter Request" | "Travel & Site Relocation"
-  >("Site PPE & Tools");
-  const [priority, setPriority] = useState<"High" | "Medium" | "Urgent">("High");
+  const [category, setCategory] = useState<ServiceRequestCategory>("Site PPE & Tools");
+  const [priority, setPriority] = useState<ServiceRequestPriority>("High");
   const [subject, setSubject] = useState("");
   const [description, setDescription] = useState("");
   const [successMsg, setSuccessMsg] = useState<string | null>(null);
@@ -164,7 +170,7 @@ export const ServiceRequestsTab: React.FC<ServiceRequestsTabProps> = ({ initialR
                   <label className="mb-1 block font-semibold text-slate-300">Category</label>
                   <select
                     value={category}
-                    onChange={(e) => setCategory(e.target.value as any)}
+                    onChange={(e) => setCategory(e.target.value as ServiceRequestCategory)}
                     className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-2.5 text-xs text-white focus:border-orange-500 focus:outline-none"
                   >
                     <option value="Site PPE & Tools">Site PPE & Tools</option>
@@ -177,7 +183,7 @@ export const ServiceRequestsTab: React.FC<ServiceRequestsTabProps> = ({ initialR
                   <label className="mb-1 block font-semibold text-slate-300">Priority</label>
                   <select
                     value={priority}
-                    onChange={(e) => setPriority(e.target.value as any)}
+                    onChange={(e) => setPriority(e.target.value as ServiceRequestPriority)}
                     className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-2.5 text-xs text-white focus:border-orange-500 focus:outline-none"
                   >
                     <option value="Medium">Medium</option>

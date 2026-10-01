@@ -15,12 +15,13 @@ import {
   Truck,
   CheckCircle2,
   ArrowRight,
+  type LucideIcon,
 } from "lucide-react";
 
 interface CapabilityCategory {
   id: string;
   label: string;
-  icon: any;
+  icon: LucideIcon;
   headline: string;
   description: string;
   items: { title: string; desc: string }[];
