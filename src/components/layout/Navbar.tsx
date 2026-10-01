@@ -15,7 +15,6 @@ import {
   ArrowRight,
   ShieldCheck,
   FileText,
-  Lock,
   ChevronDown,
   ChevronRight,
   Zap,
@@ -432,24 +431,12 @@ export function Navbar() {
             })}
           </nav>
 
-          {/* Right Action Elements: Distinct Employee Login Button & Mobile Toggle */}
-          <div className="flex items-center space-x-3">
-            {/* Distinct Employee Login 🔐 Button (Specification Section 4 & 25) */}
-            <Link
-              href="/login"
-              className="inline-flex items-center space-x-1.5 rounded-full border border-[#111650]/20 bg-[#111650] px-4 py-2 text-xs font-bold text-white shadow-sm transition hover:border-[#EA580C] hover:bg-[#EA580C]"
-              title="Secure Employee HRMS Login Gateway"
-            >
-              <Lock className="h-3.5 w-3.5 text-[#f08020]" />
-              <span>Employee Login</span>
-              <span className="text-xs font-normal">🔐</span>
-            </Link>
-
-            {/* Mobile menu button */}
+          {/* Mobile menu button */}
+          <div className="flex items-center lg:hidden">
             <button
               type="button"
               onClick={() => setMobileMenuOpen((prev) => !prev)}
-              className="inline-flex cursor-pointer items-center justify-center rounded-lg p-2 text-slate-700 hover:bg-slate-100 lg:hidden"
+              className="inline-flex cursor-pointer items-center justify-center rounded-lg p-2 text-slate-700 hover:bg-slate-100"
               aria-label="Toggle navigation"
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -496,17 +483,6 @@ export function Navbar() {
               </div>
             ))}
 
-            {/* Mobile Employee Login Link */}
-            <div className="pt-3">
-              <Link
-                href="/login"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center space-x-2 rounded-xl bg-[#111650] py-3 text-xs font-bold text-white shadow-md"
-              >
-                <Lock className="h-4 w-4 text-[#f08020]" />
-                <span>Secure Employee Login Portal 🔐</span>
-              </Link>
-            </div>
 
             {/* Direct Telecom Coordinates */}
             <div className="space-y-2 border-t border-slate-100 pt-3 text-xs text-slate-700">
