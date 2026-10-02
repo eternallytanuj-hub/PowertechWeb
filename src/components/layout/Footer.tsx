@@ -11,7 +11,6 @@ import {
   ArrowUp,
   MessageSquare,
   ShieldCheck,
-  Lock,
   ExternalLink,
   ChevronRight,
 } from "lucide-react";
@@ -271,16 +270,11 @@ export function Footer() {
               &bull; Class-A / EHV Contractor
             </span>
           </div>
-
-          {/* Employee Login Link matching Section 24 & 25 */}
-          <Link
-            href="/login"
-            className="flex items-center space-x-1.5 rounded-lg border border-white/20 bg-white/10 px-3.5 py-1.5 text-xs font-semibold text-white transition hover:border-[#EA580C] hover:bg-[#EA580C]"
-            title="Authorized Personnel HRMS Gateway"
-          >
-            <Lock className="h-3.5 w-3.5 text-[#f08020]" />
-            <span>Employee Login Portal 🔐</span>
-          </Link>
+          <div className="flex items-center space-x-3 text-slate-400">
+            <span>ISO 9001:2015</span>
+            <span>&bull;</span>
+            <span className="text-[#EA580C]">Turnkey EPC Solutions</span>
+          </div>
         </div>
       </Container>
 
@@ -302,10 +296,6 @@ export function Footer() {
             <span>&bull;</span>
             <Link href="/sitemap.xml" className="transition hover:text-white">
               Sitemap
-            </Link>
-            <span>&bull;</span>
-            <Link href="/login" className="font-semibold text-[#f08020] hover:text-white">
-              HRMS Portal 🔐
             </Link>
           </div>
         </Container>
