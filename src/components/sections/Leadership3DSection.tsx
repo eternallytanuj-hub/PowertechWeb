@@ -64,17 +64,17 @@ function Director3DCard({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
       onClick={() => onOpenDetails(leader)}
-      className="relative flex h-full flex-col cursor-pointer transition-transform duration-200 ease-out select-none"
+      className="group relative flex h-full flex-col cursor-pointer transition-transform duration-200 ease-out select-none"
       style={{
         perspective: "1000px",
       }}
     >
       <div
-        className="relative flex h-full flex-1 flex-col justify-between overflow-hidden rounded-2xl border border-white/20 bg-[#0b1328] p-6 shadow-2xl transition-all duration-300"
+        className="relative flex h-full flex-1 flex-col justify-between overflow-hidden rounded-2xl border border-white/20 bg-[#0b1328] p-5 sm:p-6 shadow-2xl transition-all duration-300 hover:border-[#EA580C]/50"
         style={{
           transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg) ${isHovered ? "scale(1.02)" : "scale(1)"}`,
           transformStyle: "preserve-3d",
-          minHeight: "510px",
+          minHeight: "520px",
         }}
       >
         {/* Dynamic Glare effect */}
@@ -82,7 +82,7 @@ function Director3DCard({
           <div
             className="pointer-events-none absolute inset-0 z-20 rounded-2xl opacity-40 transition-opacity duration-300"
             style={{
-              background: `radial-gradient(circle at ${glarePos.x}% ${glarePos.y}%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 60%)`,
+              background: `radial-gradient(circle at ${glarePos.x}% ${glarePos.y}%, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 60%)`,
             }}
           />
         )}
@@ -92,8 +92,8 @@ function Director3DCard({
 
         {/* Card Header & Avatar Representation */}
         <div className="relative z-10 flex flex-1 flex-col space-y-4">
-          <div className="flex items-start justify-between gap-2 min-h-[32px]">
-            <span className="rounded-full border border-[#EA580C]/30 bg-[#EA580C]/20 px-3 py-1 text-[10px] font-bold tracking-wider text-[#f08020] uppercase">
+          <div className="flex items-start justify-between gap-1.5 min-h-[28px]">
+            <span className="rounded-full border border-[#EA580C]/30 bg-[#EA580C]/20 px-2 py-0.5 text-[8.5px] font-bold tracking-wider text-[#f08020] uppercase shrink-0">
               {leader.roleBadge}
             </span>
             <span className="font-mono text-xs font-bold text-emerald-400 shrink-0">
@@ -101,21 +101,37 @@ function Director3DCard({
             </span>
           </div>
 
-          {/* Director Monogram & Visual Depth Frame */}
-          <div className="flex items-center space-x-4 pt-1 min-h-[96px]">
-            <div className="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border-2 border-white/20 bg-gradient-to-tr from-[#111650] to-[#0066FF] text-2xl font-black text-white shadow-xl sm:h-20 sm:w-20">
-              <span className="drop-shadow-md">{leader.name.split(" ").slice(-1)[0][0]}</span>
-              <div className="absolute -right-1 -bottom-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#EA580C] text-[10px] font-bold text-white shadow-xs">
+          {/* Director Portrait & Visual Depth Frame */}
+          <div className="flex items-center space-x-3 pt-0.5 min-h-[84px]">
+            <div className="relative flex h-14 w-14 sm:h-16 sm:w-16 shrink-0 overflow-hidden rounded-xl border-2 border-[#EA580C]/40 bg-gradient-to-tr from-[#111650] to-[#0b1328] shadow-lg">
+              {leader.image?.src ? (
+                <Image
+                  src={leader.image.src}
+                  alt={leader.image.alt || leader.name}
+                  fill
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 56px, 64px"
+                />
+              ) : (
+                <span className="flex h-full w-full items-center justify-center text-xl font-black text-white drop-shadow-md">
+                  {leader.name.split(" ").slice(-1)[0][0]}
+                </span>
+              )}
+              <div className="absolute -right-0.5 -bottom-0.5 z-10 flex h-5 w-5 items-center justify-center rounded-full bg-[#EA580C] text-[9px] font-bold text-white shadow-xs ring-2 ring-[#0b1328]">
                 ⚡
               </div>
             </div>
 
             <div className="min-w-0 flex-1">
-              <h3 className="text-lg leading-snug font-bold text-white group-hover:text-[#f08020] sm:text-xl truncate">
+              <h3 className="text-sm sm:text-base leading-snug font-bold text-white group-hover:text-[#f08020] transition-colors">
                 {leader.name}
               </h3>
-              <p className="text-xs font-semibold text-[#f08020] line-clamp-1">{leader.designation}</p>
-              <p className="mt-0.5 font-mono text-[11px] text-slate-400 line-clamp-2">{leader.education}</p>
+              <p className="text-[10.5px] sm:text-[11px] font-semibold text-[#f08020] line-clamp-2 leading-tight">
+                {leader.designation}
+              </p>
+              <p className="mt-0.5 font-mono text-[9.5px] sm:text-[10px] text-slate-400 line-clamp-2">
+                {leader.education}
+              </p>
             </div>
           </div>
 
@@ -133,7 +149,7 @@ function Director3DCard({
           <div className="text-[11px] text-slate-400 min-h-[44px] flex items-center">
             <p className="line-clamp-2">
               <strong className="text-slate-200">Key Expertise:</strong>{" "}
-              {leader.responsibilities.slice(0, 2).join(" • ")}
+              {(leader.keyExpertise || leader.responsibilities).slice(0, 3).join(" • ")}
             </p>
           </div>
 
@@ -192,22 +208,42 @@ function LeaderDetailModal({
 
         {/* Body */}
         <div className="space-y-6 overflow-y-auto p-6">
-          <div className="flex items-center space-x-4 border-b border-white/10 pb-5">
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-white/20 bg-gradient-to-tr from-[#111650] to-[#0066FF] text-2xl font-black text-white shadow-lg">
-              {leader.name.split(" ").slice(-1)[0][0]}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5 border-b border-white/10 pb-5">
+            <div className="relative flex h-24 w-24 shrink-0 overflow-hidden rounded-2xl border-2 border-[#EA580C]/50 bg-gradient-to-tr from-[#111650] to-[#0066FF] shadow-xl sm:h-28 sm:w-28">
+              {leader.image?.src ? (
+                <Image
+                  src={leader.image.src}
+                  alt={leader.image.alt || leader.name}
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 640px) 96px, 112px"
+                />
+              ) : (
+                <span className="flex h-full w-full items-center justify-center text-3xl font-black text-white">
+                  {leader.name.split(" ").slice(-1)[0][0]}
+                </span>
+              )}
+              <div className="absolute -right-1 -bottom-1 z-10 flex h-7 w-7 items-center justify-center rounded-full bg-[#EA580C] text-xs font-bold text-white shadow-md ring-2 ring-[#0c1427]">
+                ⚡
+              </div>
             </div>
             <div>
-              <h4 className="text-base font-bold text-white">{leader.name}</h4>
-              <p className="text-xs font-semibold text-[#f08020]">{leader.designation}</p>
-              <p className="mt-0.5 text-xs text-slate-400">{leader.education}</p>
-              <span className="mt-1 inline-block font-mono text-[11px] font-semibold text-emerald-400">
-                {leader.experienceYears}+ Years Engineering Leadership
+              <span className="text-[10px] font-bold tracking-wider text-[#EA580C] uppercase">
+                {leader.roleBadge}
               </span>
+              <h4 className="text-xl font-bold text-white">{leader.name}</h4>
+              <p className="text-sm font-semibold text-[#f08020]">{leader.designation}</p>
+              <p className="mt-0.5 text-xs text-slate-400">{leader.education}</p>
+              <div className="mt-2 flex flex-wrap items-center gap-2">
+                <span className="inline-block rounded-full bg-emerald-500/15 border border-emerald-500/30 px-2.5 py-0.5 font-mono text-xs font-semibold text-emerald-400">
+                  {leader.experienceYears}+ Years Executive Experience
+                </span>
+              </div>
             </div>
           </div>
 
           {/* Statement */}
-          <div className="rounded-xl border border-white/10 bg-white/5 p-4 text-xs text-slate-200 italic">
+          <div className="rounded-xl border border-white/10 bg-white/5 p-4 text-xs text-slate-200 italic sm:text-sm leading-relaxed">
             &ldquo;{leader.statement}&rdquo;
           </div>
 
@@ -219,10 +255,30 @@ function LeaderDetailModal({
             <p className="text-xs leading-relaxed text-slate-300 sm:text-sm">{leader.biography}</p>
           </div>
 
+          {/* Key Expertise (Matching team2.png tags) */}
+          {leader.keyExpertise && leader.keyExpertise.length > 0 && (
+            <div>
+              <h4 className="mb-2.5 text-xs font-bold tracking-wider text-slate-300 uppercase">
+                Core Domains of Expertise
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {leader.keyExpertise.map((item, i) => (
+                  <span
+                    key={i}
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-medium text-slate-200"
+                  >
+                    <Sparkles className="h-3 w-3 text-[#f08020]" />
+                    <span>{item}</span>
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Areas of Responsibility */}
           <div>
             <h4 className="mb-2 text-xs font-bold tracking-wider text-slate-300 uppercase">
-              Areas of Responsibility
+              Areas of Responsibility & Governance
             </h4>
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
               {leader.responsibilities.map((resp, i) => (
@@ -237,7 +293,7 @@ function LeaderDetailModal({
           {/* Key Contributions */}
           <div>
             <h4 className="mb-2 text-xs font-bold tracking-wider text-slate-300 uppercase">
-              Key Contributions to Powertech
+              Key Contributions to Powertech & Industry
             </h4>
             <div className="space-y-2">
               {leader.contributions.map((con, i) => (
@@ -286,7 +342,7 @@ export function Leadership3DSection() {
       {/* Background Subtle Gradient Grid */}
       <div className="hero-circuit-grid pointer-events-none absolute inset-0 opacity-15" />
 
-      <Container className="relative z-10">
+      <Container size="xl" className="relative z-10">
         {/* Section Header */}
         <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
@@ -305,7 +361,7 @@ export function Leadership3DSection() {
         </div>
 
         {/* 3D Interactive Director Cards Grid */}
-        <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {leadershipData.map((leader) => (
             <Director3DCard key={leader.id} leader={leader} onOpenDetails={handleOpenDetails} />
           ))}
@@ -322,8 +378,8 @@ export function Leadership3DSection() {
                 Technocrat Led Since April 2004
               </h3>
               <p className="mt-0.5 text-xs text-slate-400">
-                Every executive leader at Powertech is a qualified electrical or structural engineer
-                with decades of on-site grid execution experience.
+                Every executive leader at Powertech brings decades of visionary enterprise governance
+                and on-site high-voltage grid execution experience.
               </p>
             </div>
           </div>
